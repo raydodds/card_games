@@ -1,0 +1,26 @@
+THE OBJECTIVE
+The goal is to get all the cards in one pile
+
+THE PACK
+The standard 52-card pack is used.
+
+THE DEAL
+The player deals out the cards one by one face up, in a row from left to right,
+as many at a time as space allows. (Dealing may be interrupted at any time if 
+the player wishes to make a move. After making a move, the deal is then resumed).
+
+THE PLAY
+Any card may be placed on top of the next card at its left, or the third card at
+its left, if the cards are of the same suit or of the same rank.
+
+Example: Four cards, from left to right, are: 6 hearts, J hearts, 9 clubs,
+9 hearts. The 9 hearts may be placed either on the 9 clubs or on the 6 hearts.
+It may not be played on the jack of the same suit because the jack is not to the
+immediate left, or third from the left.
+
+When the movement of one or more cards has formed a pile, the entire pile is
+moved with the top card.
+
+In the example above, when the 9 hearts is put on the 9 clubs, the two may be 
+put on the J hearts and then all of these cards on the 6 clubs. However, it is 
+not obligatory to make a particular move if the player prefers not to do so.
