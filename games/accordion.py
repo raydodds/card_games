@@ -21,9 +21,9 @@ class Accordion:
         rstrings = []
         for i in range(0, len(self.stacks)):
             if i == self._current_stack:
-                rstring += ["[" + str(self.stacks[i][-1]) + "]"]
+                rstrings += ["[" + str(self.stacks[i][-1]) + "]"]
             else:
-                rstring += [str(self.stacks[i][-1])]
+                rstrings += [str(self.stacks[i][-1])]
         return ", ".join(rstrings)
 
     def print_with_moves(self):
@@ -41,9 +41,9 @@ class Accordion:
             elif 'back_three' in moves:
                 move_token = '.'
             if i == self._current_stack:
-                rstring += ["[" + move_token + str(self.stacks[i][-1]) + "]"]
+                rstrings += ["[" + move_token + str(self.stacks[i][-1]) + "]"]
             else:
-                rstring += [move_token + str(self.stacks[i][-1])]
+                rstrings += [move_token + str(self.stacks[i][-1])]
         return ", ".join(rstrings)
 
     # Public methods
