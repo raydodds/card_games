@@ -114,16 +114,18 @@ def main():
     from msvcrt import getch
     game = Accordion()
     game.get_moves()['draw']()
+    move_count = 0
 
     _ch = b'a'
     while _ch != b'q':
-        print("\n\n\n"+game.get_state()+"\n"+str(game))
+        print("\n\n\n"+game.get_state()+"\t\tMoves: "+str(move_count)+"\n"+str(game))
         _ch = getch()
         moves = game.get_moves()
 
         if _ch == b' ':
             try:
                 moves['draw']()
+                move_count += 1
             except KeyError:
                 pass
         elif _ch == b'a':
@@ -139,11 +141,13 @@ def main():
         elif _ch == b',':
             try:
                 moves['back_one']()
+                move_count += 1
             except KeyError:
                 pass
         elif _ch == b'.':
             try:
                 moves['back_three']()
+                move_count += 1
             except KeyError:
                 pass
         elif _ch == b'r':
