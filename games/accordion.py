@@ -18,13 +18,33 @@ class Accordion:
         self._state = "Play"
 
     def __str__(self):
-        rstring = []
+        rstrings = []
         for i in range(0, len(self.stacks)):
             if i == self._current_stack:
                 rstring += ["[" + str(self.stacks[i][-1]) + "]"]
             else:
                 rstring += [str(self.stacks[i][-1])]
-        return ", ".join(rstring)
+        return ", ".join(rstrings)
+
+    def print_with_moves(self):
+        """
+        Prints the current game state with available moves marked.
+        """
+        rstrings = []
+        for i in range(0, len(self.stacks)):
+            moves = self._get_moves(i)
+            move_token = ' '
+            if('back_one' in moves and 'back_three' in moves):
+                move_token = ';'
+            elif 'back_one' in moves:
+                move_token = ','
+            elif 'back_three' in moves:
+                move_token = '.'
+            if i == self._current_stack:
+                rstring += ["[" + move_token + str(self.stacks[i][-1]) + "]"]
+            else:
+                rstring += [move_token + str(self.stacks[i][-1])]
+        return ", ".join(rstrings)
 
     # Public methods
 
@@ -126,7 +146,7 @@ def main():
 
     _ch = b'a'
     while _ch != b'q':
-        print("\n\n\n"+game.get_state()+"\t\tMoves: "+str(move_count)+"\n"+str(game))
+        print("\n\n\n"+game.get_state()+"\t\tMoves: "+str(move_count)+"\n"+game.print_with_moves())
         _ch = getch()
         moves = game.get_moves()
 
