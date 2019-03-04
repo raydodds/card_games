@@ -154,6 +154,7 @@ def main():
             game = Accordion()
             game.get_moves()['draw']()
             print("New game...")
+            move_count = 0
         elif _ch == 'q' or _ch == b'\x03' or _ch == b'\x04':
             exit()
 
