@@ -44,18 +44,26 @@ class Accordion:
     # Private methods
 
     def _check_state(self):
+        # if there are still cards left
         if self.deck:
             self._state = "Play"
+        # if there are no cards left and only one stack
         elif len(self.stacks) == 1:
             self._state = "Win"
+        # if there are no cards left, but multiple stacks
         else:
-            all_moves = []
+            # Find any moves that would progress the game
+            loss = True
             for i in range(0, len(self.stacks)):
-                all_moves += self._get_moves(i)
-            if len(all_moves) > 2*len(self.stacks):
-                self._state = "Play"
-            else:
+                moves = self._get_moves(i)
+                if("draw" in moves or "back_one" in moves or "back_three" in moves):
+                    loss = False
+                    break
+            # If no such moves exist, the player has lost
+            if loss:
                 self._state = "Loss"
+            else:
+                self._state = "Play"
 
     def _compatible(self, stack_1, stack_2):
         return self.stacks[stack_1][-1].suit == self.stacks[stack_2][-1].suit or\
